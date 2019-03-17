@@ -35,6 +35,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.allSoldiers = new System.Windows.Forms.ListView();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.editSoldier = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // SoldierName
@@ -89,17 +90,28 @@
             // 
             this.btnDelete.Location = new System.Drawing.Point(285, 356);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(115, 53);
+            this.btnDelete.Size = new System.Drawing.Size(125, 52);
             this.btnDelete.TabIndex = 6;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // editSoldier
+            // 
+            this.editSoldier.Location = new System.Drawing.Point(720, 25);
+            this.editSoldier.Name = "editSoldier";
+            this.editSoldier.Size = new System.Drawing.Size(125, 52);
+            this.editSoldier.TabIndex = 7;
+            this.editSoldier.Text = "Edit";
+            this.editSoldier.UseVisualStyleBackColor = true;
+            this.editSoldier.Click += new System.EventHandler(this.editSoldier_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(870, 452);
+            this.Controls.Add(this.editSoldier);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.allSoldiers);
             this.Controls.Add(this.button1);
@@ -124,6 +136,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ListView allSoldiers;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.Button editSoldier;
     }
 }
 

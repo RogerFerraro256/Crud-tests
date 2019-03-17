@@ -30,7 +30,7 @@ namespace WindowsFormsApp1
             allSoldiers.Columns.Add("Soldier Country", 100);
             allSoldiers.Columns.Add("Souldier Alliance", 100);
 
-            
+
         }
 
         private MySqlConnection conn;
@@ -41,6 +41,7 @@ namespace WindowsFormsApp1
 
         private void populateSoldiers()
         {
+            //this is the select that will work in this exemple
             allSoldiers.GridLines = true;
             allSoldiers.View = View.Details;
 
@@ -57,8 +58,7 @@ namespace WindowsFormsApp1
             username = "root";
             password = "1234";
             string connectionString;
-            connectionString = "SERVER=" + server + ";" + "DATABASE=" +
-            database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";";
+            connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + username + ";" + "PASSWORD=" + password + ";";
 
             conn = new MySqlConnection(connectionString);
 
@@ -102,12 +102,18 @@ namespace WindowsFormsApp1
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            foreach(ListViewItem selected in allSoldiers.SelectedItems) {
+            foreach (ListViewItem selected in allSoldiers.SelectedItems)
+            {
                 String text = allSoldiers.SelectedItems[0].Text;
                 label1.Text = text;
                 db.Delete(text);
                 allSoldiers.Items.Remove(selected);
             }
+        }
+
+        private void editSoldier_Click(object sender, EventArgs e)
+        {
+            new editSoldier().Show();
         }
     }
 }

@@ -12,6 +12,8 @@ namespace WindowsFormsApp1
     class DataBase
     {
 
+
+
         private MySqlConnection conn;
         private string server;
         private string database;
@@ -44,7 +46,7 @@ namespace WindowsFormsApp1
             {
                 conn.Open();
                 return true;
-            }catch(MySqlException ex)
+            }catch(MySqlException)
             {
                
             }
@@ -61,7 +63,7 @@ namespace WindowsFormsApp1
                 conn.Close();
                 return true;
             }
-            catch (MySqlException ex)
+            catch (MySqlException)
             {
                 
                 return false;
@@ -83,7 +85,7 @@ namespace WindowsFormsApp1
                     this.CloseConnection();
                    
                 }
-            }catch(Exception ex)
+            }catch(Exception)
             {
                 
             }
@@ -93,13 +95,13 @@ namespace WindowsFormsApp1
         //Update statement
         public void Update(string SoldierName, string SoldierCountry, string SoldierAlliance,int idSoldier)
         {
-            string query = "UPDATE soldier SET SoldierName = '" + SoldierName+"', SoldierCountry = '"+SoldierCountry+"',SoldierName = '"+SoldierName+"' WHERE idSoldier = "+idSoldier+").";
+            string query = "UPDATE soldier SET SoldierName = '" + SoldierName+"', SoldierCountry = '"+SoldierCountry+"',SoldierAlliance = '"+SoldierAlliance+"' WHERE idSoldier = "+idSoldier+";";
 
             //Open connection
             if (this.OpenConnection() == true)
             {
                 //create mysql command
-                MySqlCommand cmd = new MySqlCommand();
+                MySqlCommand cmd = new MySqlCommand(query,conn);
                 //Assign the query using CommandText
                 cmd.CommandText = query;
                 //Assign the connection using Connection
@@ -114,6 +116,7 @@ namespace WindowsFormsApp1
         }
 
         //Delete statement
+        //this will delete from the
         public void Delete(string idSoldier)
         {
             string query = "DELETE FROM soldier WHERE idSoldier=" + idSoldier+";";
@@ -127,6 +130,7 @@ namespace WindowsFormsApp1
         }
 
         //Select statement
+        //will select the items from the DB but didn't worked
         public List<string>[] Select()
         {
             string query = "SELECT * FROM soldier";
@@ -174,6 +178,7 @@ namespace WindowsFormsApp1
         }
 
         //Count statement
+        //Conta quantas entradas tem
         public int Count()
         {
             string query = "SELECT Count(*) FROM soldier";
